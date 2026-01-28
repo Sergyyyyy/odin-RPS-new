@@ -78,8 +78,20 @@ function playRound(humanSelection, computerSelection){
 }
 
 function playGame(){
+    for (let i = 0; i <= choices.length; i++){
+        playRound(humanChoice, compChoice)
+    }
 
+    let score;
+
+    if (humanScore == computerScore){
+        score = "The score is tied!"
+    }
+    else{
+        score = (humanScore > computerScore) ? `You win! Score: ${humanScore}` : `Computer wins! Score: ${computerScore}`
+    }
+
+    alert(score)
 }
 
-
-playRound()
+playGame()
