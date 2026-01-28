@@ -29,24 +29,21 @@ Global Scope
 choices = ["rock", "paper", "scissors"]
 let humanScore = 0
 let computerScore = 0
-let runFiveTimes = 5
+let attempts = 4
 
 function getComputerChoice() {
     randomChoice = Math.floor(Math.random() * 3)
 
-    console.log(choices[randomChoice])
+    console.log("Computer: " + choices[randomChoice])
     return choices[randomChoice]
 }
 
 function getHumanChoice() {
     let myChoice = prompt("Enter your choice:").toLowerCase()
 
-    console.log(myChoice)
+    console.log("You: " + myChoice)
     return myChoice
 }
-
-compChoice = getComputerChoice()
-humanChoice = getHumanChoice()
 
 function playRound(humanSelection, computerSelection) {
     if (humanSelection == computerSelection) {
@@ -78,7 +75,7 @@ function playRound(humanSelection, computerSelection) {
     }
 }
 
-function decideWinner(){
+function decideWinner() {
     let score;
 
     if (humanScore == computerScore) {
@@ -88,19 +85,16 @@ function decideWinner(){
         score = (humanScore > computerScore) ? `You win! Score: ${humanScore}` : `Computer wins! Score: ${computerScore}`
     }
 
+    console.log("\n" + score)
     alert(score)
 }
 
 function playGame() {
-    // while (runFiveTimes <= 4){
-    //     playRound(humanChoice, compChoice)
-    //     runFiveTimes+=1
-    // }
 
-    while (runFiveTimes > 0) {
-        alert("!")
-        playRound()
-        runFiveTimes-=1
+    for (let i = 0; i <= attempts; i++) {
+        compChoice = getComputerChoice()
+        humanChoice = getHumanChoice()
+        playRound(humanChoice, compChoice)
     }
 
     decideWinner()
