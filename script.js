@@ -29,15 +29,16 @@ Global Scope
 choices = ["rock", "paper", "scissors"]
 let humanScore = 0
 let computerScore = 0
+let runFiveTimes = 5
 
-function getComputerChoice(){
+function getComputerChoice() {
     randomChoice = Math.floor(Math.random() * 3)
 
     console.log(choices[randomChoice])
     return choices[randomChoice]
 }
 
-function getHumanChoice(){
+function getHumanChoice() {
     let myChoice = prompt("Enter your choice:").toLowerCase()
 
     console.log(myChoice)
@@ -47,51 +48,62 @@ function getHumanChoice(){
 compChoice = getComputerChoice()
 humanChoice = getHumanChoice()
 
-function playRound(humanSelection, computerSelection){
-    if (humanSelection == computerSelection){
+function playRound(humanSelection, computerSelection) {
+    if (humanSelection == computerSelection) {
         alert("Tie!")
     }
-    else if(humanSelection == "rock" && computerSelection == "scissors"){
-        humanScore+=1
+    else if (humanSelection == "rock" && computerSelection == "scissors") {
+        humanScore += 1
         alert("You get a point.")
     }
-    else if(humanSelection == "rock" && computerSelection == "paper"){
-        computerScore+=1
+    else if (humanSelection == "rock" && computerSelection == "paper") {
+        computerScore += 1
         alert("Computer gets a point.")
     }
-    else if(humanSelection == "scissors" && computerSelection == "rock"){
-        computerScore+=1
+    else if (humanSelection == "scissors" && computerSelection == "rock") {
+        computerScore += 1
         alert("Computer gets a point.")
     }
-    else if(humanSelection == "scissors" && computerSelection == "paper"){
-        humanScore+=1
+    else if (humanSelection == "scissors" && computerSelection == "paper") {
+        humanScore += 1
         alert("You get a point.")
     }
-    else if(humanSelection == "paper" && computerSelection == "scissors"){
-        computerScore+=1
+    else if (humanSelection == "paper" && computerSelection == "scissors") {
+        computerScore += 1
         alert("Computer gets a point.")
     }
-    else if(humanSelection == "paper" && computerSelection == "rock"){
-        humanScore+=1
+    else if (humanSelection == "paper" && computerSelection == "rock") {
+        humanScore += 1
         alert("You get a point.")
     }
 }
 
-function playGame(){
-    for (let i = 0; i <= choices.length; i++){
-        playRound(humanChoice, compChoice)
-    }
-
+function decideWinner(){
     let score;
 
-    if (humanScore == computerScore){
+    if (humanScore == computerScore) {
         score = "The score is tied!"
     }
-    else{
+    else {
         score = (humanScore > computerScore) ? `You win! Score: ${humanScore}` : `Computer wins! Score: ${computerScore}`
     }
 
     alert(score)
+}
+
+function playGame() {
+    // while (runFiveTimes <= 4){
+    //     playRound(humanChoice, compChoice)
+    //     runFiveTimes+=1
+    // }
+
+    while (runFiveTimes > 0) {
+        alert("!")
+        playRound()
+        runFiveTimes-=1
+    }
+
+    decideWinner()
 }
 
 playGame()
