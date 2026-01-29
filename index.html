@@ -3,10 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Odin - RPS</title>
+    <title>Odin - RPS - with UI</title>
     <script src="script.js" defer></script>
 </head>
 <body>
-    <h1>Test!</h1>
+    <header>
+        <h1>Welcome to RPS - Remodeled</h1>
+        <h3>Press any option below to start!</h3>
+    </header>
+    <section class="main-section">
+        <button class="btn-options" id="btn-rock">Rock</button>
+        <button class="btn-options" id="btn-paper">Paper</button>
+        <button class="btn-options" id="btn-scissors">Scissors</button>
+    </section>
+    <section class="score-section">
+        <h2 id="h2-human-score">Your Score: </h2>
+        <h2 id="h2-computer-score">Computer Score: </h2>
+    </section>
 </body>
 </html>
