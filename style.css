@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(1, 28, 22);
+}
+
+
+header{
+    margin: 80px;
+    padding: 20px;
+    color: rgb(0, 145, 185);
+    text-align: center;
+    border: solid 2px;
+    border-radius: 10px;
+    transition: 0.4s ease-in-out;
+}
+
+header:hover{
+    color: white;
+    border: solid 2px white;
+}
+
+.main-section{
+    padding: 122px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.btn-options{
+    padding: 10px 30px;
+    border-radius: 20px;
+    border: solid 2px rgb(0, 145, 185);
+    color: rgb(0, 145, 185);
+    background-color: rgb(1, 28, 22);
+    transition: 0.4s ease-in-out;
+}
+
+.btn-options:hover{
+    color: white;
+    border: solid 2px rgb(255, 255, 255);
+}
+
+.score-section{
+    padding: 100px;
+    color: rgb(0, 145, 185)
+}
