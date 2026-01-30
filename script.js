@@ -1,12 +1,25 @@
 choices = ["rock", "paper", "scissors"]
-let humanScore = 0
-let computerScore = 0
 
 function getComputerChoice() {
     randomChoice = Math.floor(Math.random() * 3)
 
     console.log("Computer: " + choices[randomChoice])
     return choices[randomChoice]
+}
+
+let hScore = 0
+let cScore = 0
+
+humanScore = document.getElementById("h-score")
+computerScore = document.getElementById("c-score")
+
+function checkWin(){
+    if (hScore >= 5){
+        Swal.fire("You Win!")
+    }
+    else if (cScore >= 5){
+        Swal.fire("Computer Wins!")
+    }
 }
 
 
@@ -16,21 +29,33 @@ function compareInput(compChoice, humanChoice) {
     }
     else if (compChoice == "rock" && humanChoice == "paper") {
         Swal.fire("You get a point!")
+        hScore += 1
+        humanScore.innerHTML = " " + hScore
     }
     else if (compChoice == "rock" && humanChoice == "scissors") {
         Swal.fire("Computer gets a point!")
+        cScore += 1
+        computerScore.innerHTML = " " + cScore
     }
     else if (compChoice == "paper" && humanChoice == "rock") {
         Swal.fire("Computer gets a point!")
+        cScore += 1
+        computerScore.innerHTML = " " + cScore
     }
     else if (compChoice == "paper" && humanChoice == "scissors") {
         Swal.fire("You get a point!")
+        hScore += 1
+        humanScore.innerHTML = " " + hScore
     }
     else if (compChoice == "scissors" && humanChoice == "paper") {
         Swal.fire("Computer gets a point!")
+        cScore += 1
+        computerScore.innerHTML = " " + cScore
     }
     else if (compChoice == "scissors" && humanChoice == "rock") {
         Swal.fire("You get a point!")
+        hScore += 1
+        humanScore.innerHTML = " " + hScore
     }
 }
 
@@ -66,7 +91,7 @@ document.getElementById("btn-scissors").onclick = function () {
 };
 
 
-
+checkWin()
 
 
 
