@@ -13,12 +13,16 @@ let cScore = 0
 humanScore = document.getElementById("h-score")
 computerScore = document.getElementById("c-score")
 
-function checkWin(){
-    if (hScore >= 5){
+function checkWin() {
+    if (hScore >= 5) {
         Swal.fire("You Win!")
+        hScore = 0
+        cScore = 0
     }
-    else if (cScore >= 5){
+    else if (cScore >= 5) {
         Swal.fire("Computer Wins!")
+        hScore = 0
+        cScore = 0
     }
 }
 
@@ -63,13 +67,24 @@ function confirmInput(option) {
     Swal.fire({
         title: "Confirm option?",
         showDenyButton: true,
-        showCancelButton: true,
         confirmButtonText: "Yes",
-        denyButtonText: "No"
+        denyButtonText: "No",
+        width: 600,
+        padding: "3em"
     }).then((result) => {
         if (result.isConfirmed) {
-            Swal.fire("You have chosen " + option, "", "success");
+            Swal.fire({
+                title: "You have chosen " + option,
+                icon: "info",
+                width: 600,
+                padding: "3em",
+                color: "#0091b9",
+                customClass: {
+                    popup: 'my-custom-popup'
+                }
+            });
             compareInput(getComputerChoice(), option);
+            checkWin()
         } else if (result.isDenied) {
             Swal.fire("Please choose an option", "", "info");
         }
@@ -89,9 +104,6 @@ document.getElementById("btn-paper").onclick = function () {
 document.getElementById("btn-scissors").onclick = function () {
     confirmInput("scissors");
 };
-
-
-checkWin()
 
 
 
