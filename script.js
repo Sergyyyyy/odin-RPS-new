@@ -9,25 +9,65 @@ function getComputerChoice() {
     return choices[randomChoice]
 }
 
-rock = document.getElementById("btn-rock")
-paper = document.getElementById("btn-paper")
-scissors = document.getElementById("btn-scissors")
+
+function compareInput(compChoice, humanChoice) {
+    if (compChoice == humanChoice) {
+        Swal.fire("Tie!")
+    }
+    else if (compChoice == "rock" && humanChoice == "paper") {
+        Swal.fire("You get a point!")
+    }
+    else if (compChoice == "rock" && humanChoice == "scissors") {
+        Swal.fire("Computer gets a point!")
+    }
+    else if (compChoice == "paper" && humanChoice == "rock") {
+        Swal.fire("Computer gets a point!")
+    }
+    else if (compChoice == "paper" && humanChoice == "scissors") {
+        Swal.fire("You get a point!")
+    }
+    else if (compChoice == "scissors" && humanChoice == "paper") {
+        Swal.fire("Computer gets a point!")
+    }
+    else if (compChoice == "scissors" && humanChoice == "rock") {
+        Swal.fire("You get a point!")
+    }
+}
+
+function confirmInput(option) {
+    Swal.fire({
+        title: "Confirm option?",
+        showDenyButton: true,
+        showCancelButton: true,
+        confirmButtonText: "Yes",
+        denyButtonText: "No"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire("You have chosen " + option, "", "success");
+            compareInput(getComputerChoice(), option);
+        } else if (result.isDenied) {
+            Swal.fire("Please choose an option", "", "info");
+        }
+    });
+}
+
+let currentValue = ""
+
+document.getElementById("btn-rock").onclick = function () {
+    confirmInput("rock");
+};
+
+document.getElementById("btn-paper").onclick = function () {
+    confirmInput("paper");
+};
+
+document.getElementById("btn-scissors").onclick = function () {
+    confirmInput("scissors");
+};
 
 
 
-// testSwal = document.getElementById("btn-rock")
-// console.log(testSwal)
 
-// function newSwal(){
-//     Swal.fire({
-//         title: "How was your day?",
-//         confirmButtonText: "Good!",
-//         showDenyButton: true,
-//         denyButtonText: "Bad."
-//     })
-// }
-
-// testSwal.addEventListener("click", newSwal)
 
 
 
