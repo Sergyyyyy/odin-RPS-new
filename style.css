@@ -47,5 +47,20 @@ header:hover{
 
 .score-section{
     padding: 100px;
-    color: rgb(0, 145, 185)
+    color: rgb(0, 145, 185);
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.h-score-container{
+    display: flex;
+}
+
+.c-score-container{
+    display: flex;
+}
+
+.my-custom-popup {
+  border: solid 2px #0091b9;
 }
